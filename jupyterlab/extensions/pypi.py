@@ -347,6 +347,8 @@ class PyPIExtensionManager(ExtensionManager):
                     data = await self.__throttleRequest(False, fn, *args)
                 else:
                     data = await current_loop.run_in_executor(None, fn, *args)
+            else:
+                raise
 
         return data
 
